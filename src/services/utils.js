@@ -27,12 +27,12 @@ module.exports = {
 
   async registerCity(cityId, token) {
     try {
-      const register = await axios
-        .put(`http://apiadvisor.climatempo.com.br/api-manager/user-token/${token}/locales`, {
-          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-          data: `localeId[]=${cityId}`
-        });
-      console.log(register);
+      const register = await axios.put(
+        `http://apiadvisor.climatempo.com.br/api-manager/user-token/${token}/locales`,
+        { data: `localeId[]=${cityId}`},
+        { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }
+      )
+      return register;
     } catch (err) {
       console.log(err);
     }
